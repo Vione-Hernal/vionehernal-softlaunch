@@ -1,0 +1,510 @@
+/* ito yung global reset, para tanggal lahat ng default margin at padding ng browser */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* para yung padding at border, hindi sumasama sa width/height */
+}
+
+/* ito yung pinaka-body styles, yung main background at default font ng buong site */
+body {
+  font-family: 'Inter', sans-serif;
+  /* modern clean font */
+  color: #111;
+  /* dark gray text */
+  background: white;
+  /* plain white background */
+}
+
+
+/* 🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭
+   Top Banner 
+  🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭 */
+
+/* ito yung maliit na strip sa pinaka-top ng page (free shipping notice etc.) */
+.top-banner {
+  width: 100%;
+  background-color: #0B1F3F;
+  /* deep navy color, my energy vibes!!! 😋 */
+  color: #ffffff;
+  /* white text para readable */
+  text-align: center;
+  padding: 0.6rem 0;
+  /* manipis na space top and bottom */
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  /* medyo maliit lang na text */
+  letter-spacing: 0.5px;
+  /* konting spacing, saks vibe */
+  position: fixed;
+  /* naka-fix sa taas kahit mag scroll */
+  top: 0;
+  left: 0;
+  z-index: 15;
+  /* para laging nasa ibabaw ng navbar */
+}
+
+/* Yung link sa banner (Learn More) */
+.top-banner a {
+  color: #ffffff;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+/* Pag hover sa link, medyo fade ng konti */
+.top-banner a:hover {
+  color: #cccccc;
+}
+
+
+/* 🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭
+   Navbargrrr
+🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭 */
+
+/* ito yung main navigation bar (logo, links, icons) */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  /* logo sa left, links sa gitna, icons sa kanan */
+  align-items: center;
+  padding: 20px 30px;
+  /* mas maluwag spacing for luxury feel */
+  position: fixed;
+  width: 100%;
+  top: 2.3rem;
+  /* ilalagay sya below nung top-banner */
+  z-index: 10;
+  background: transparent;
+  /* transparent pag hindi naka-hover */
+}
+
+/* Logo design */
+.navbar .logo {
+  font-family: 'Playfair Display', serif;
+  /* classy serif font */
+  font-size: 1.4rem;
+  font-weight: 100;
+  /* manipis na stroke para sosyal tingnan, oakY?? */
+  letter-spacing: 1px;
+  color: #eee;
+  /* off-white text */
+  text-transform: uppercase;
+  /* all caps = luxury brand vibe */
+}
+
+/* Navigation links wrapper */
+.nav-links {
+  display: flex;
+  gap: 30px;
+  /* pagitan ng bawat link */
+}
+
+.nav-links li {
+  list-style: none;
+  /* tanggal bullets */
+}
+
+/* Mga navigation links (Home, Women, Men, etc.) */
+.nav-links a {
+  font-size: .7rem;
+  font-weight: 50;
+  letter-spacing: 1px;
+  margin-bottom: 2rem;
+  color: #eee;
+  line-height: 1.5;
+  transition: color 0.3s ease;
+  /* smooth color change on hover */
+}
+
+/* Mga icons (search, cart) */
+.nav-icons a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.5rem;
+  margin-left: 20px;
+  transition: color 0.3s ease;
+}
+
+/* Pag hover sa buong navbar, nagiging white background */
+.navbar:hover {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Pag naka-hover, lahat ng text nagiging black para contrast */
+.navbar:hover a,
+.navbar:hover .logo,
+.navbar:hover .nav-icons a {
+  color: black;
+}
+
+
+/* 🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭
+   Hero Section
+🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭 */
+
+/* ito yung pinaka malaking intro section with video background */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  /* buong screen height */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Video background ng hero */
+#hero-video-1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  /* sakto fit kahit anong ratio */
+  z-index: 1;
+  filter: brightness(0.5);
+  /* darken konti para readable text */
+}
+
+/* Hero text (Timeless Elegance etc.) */
+.hero-text-1 {
+  position: relative;
+  z-index: 2;
+  /* nasa ibabaw ng video */
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+.hero-text-1 h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.hero-text-1 p {
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  margin-bottom: 2rem;
+  color: #eee;
+  line-height: 1.5;
+}
+
+/* Button sa hero section */
+.hero-text-1 .btn {
+  display: inline-block;
+  padding: 12px 30px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #fff;
+  border: 1px solid #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+
+/* Hover effect ng button */
+.hero-text-1 .btn:hover {
+  background: #fff;
+  color: #111;
+}
+
+
+/* 🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭
+   Bottom Boxes Section
+🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭 */
+
+/* Eto yung dalawang malalaking box sa baba (images) */
+.bottom-boxes {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem auto;
+}
+
+.bottom-boxes .box {
+  width: 712px;
+  height: 900px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  flex-shrink: 0;
+  position: relative;
+  display: flex;
+}
+
+/* Right box with model image */
+.bottom-boxes .right-box {
+  background-image: url('images/model/model-1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Left box with model image */
+.bottom-boxes .left-box {
+  background-image: url('images/model/model-2.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+.bottom-boxes .box-content {
+  position: absolute;   /* changed from relative → absolute */
+  bottom: 20%;          /* new: push up from bottom */
+  left: 2rem;           /* new: spacing from left */
+  z-index: 1;
+  color: #fff;
+  max-width: 70%;       /* new: wrap to half width */
+  text-align: left;     /* new: force left alignment */
+}
+
+
+.branding {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.30em;
+  line-height: 1.5;
+  text-transform: none;
+  font-weight: 400;
+  max-width: 90%;
+  color: white;
+
+
+  /* force left alignment inside flex/grid parents */
+  align-self: flex-start;
+  justify-self: flex-start;
+}
+
+.branding p {
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  margin-bottom: 2rem;
+  color: #eee;
+  line-height: 1.5;
+}
+
+
+
+/* 🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭
+   Secondary Section
+🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭 */
+
+/* section na may title (Beyond the Ordinary - nag iisip pa ko ibang ilalagay dito) */
+.section {
+  padding: 0px 0px;
+  max-width: 12000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #111;
+}
+
+.section p {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: #444;
+  max-width: 700px;
+  margin: 0 auto 2rem auto;
+  line-height: 1.6;
+}
+
+
+/* 🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭
+   Bottom Last Section
+🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭 */
+
+/* pinakailalim na malapad na box section */
+.bottom-last {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 1rem auto;
+  width: 1440px;
+  height: 900px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+
+/* 🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭
+   Responsive
+🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭 */
+
+/* Para gumanda layout pag mobile or tablet */
+@media (max-width: 768px) {
+  .nav-links {
+    gap: 15px;
+  }
+
+  .hero-text h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-text p {
+    font-size: 0.9rem;
+  }
+
+  .bottom-boxes {
+    flex-direction: column;
+    /* stack na instead of side by side */
+    align-items: center;
+  }
+
+  .bottom-boxes .box,
+  .bottom-last {
+    width: 90%;
+    height: auto;
+  }
+}
+
+
+/* 🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭
+ HERO 2 
+🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭
+*/
+
+/* Eto yung second hero section na may ibang video */
+.hero-2 {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#hero-video-2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: 1;
+  filter: brightness(0.5);
+}
+
+.hero-text-2 {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+  color: white;
+}
+
+.hero-text-2 h2 {
+  text-align: center;
+  margin-top: 40%;
+  color: whitesmoke;
+}
+
+
+/* 🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭
+   Modal (Popup)
+🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭 */
+
+/* yung background overlay ng popup */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  /* nakatago by default */
+  justify-content: center;
+  align-items: center;
+  background: rgba(11, 31, 63, 0.7);
+  /* dark semi-transparent bg */
+  z-index: 1000;
+}
+
+/* yung mismong box ng popup */
+.modal-content {
+  font-family: 'Playfair Display', Serif;
+  position: relative;
+  background: #fff;
+  padding: 40px;
+  border-radius: 15px;
+  text-align: center;
+  color: #0B1F3F;
+  width: 80%;
+  max-width: 450px;
+  overflow: hidden;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+/* Animation ng modal pag nag-appear */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Smoke effect video inside modal background */
+.smoke-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.6;
+  mask: radial-gradient(circle, transparent 70%, black 100%);
+  -webkit-mask: radial-gradient(circle, transparent 70%, black 100%);
+}
+
+/* Image inside modal */
+.modal-content img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+/* Title inside modal */
+.modal-content h2 {
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+/* Close button ng modal (x sa taas kanan) */
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #0B1F3F;
+  transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+  color: #888;
+}

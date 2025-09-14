@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- this just tells the browser what kinda text encoding to use, so no weird symbols show up. Always include. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- This makes the site look good on phones and tablets. Without this, mobile zooms all crazy. -->
+  <title>Vione Hernal</title>
+  <!-- The name on the browser tab, make it fire!!!!!!! Example: “Vione Hernal | Shop Now” -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap"
+    rel="stylesheet">
+  <!-- This is the fonts from googols fonts. Playfair for titles, Inter for body text. Swap ko lang to if I want different vibes - pero malabo ewan kinginames!! -->
+  <link rel="stylesheet" href="soft-launch-v2.css">
+  <!-- This hooks my CSS. Without it, everything looks like default boring HTML. -->
+  <!-- Favicon -->
+  <link rel="icon" href="vionehernal.ico" type="image/x-icon" />
+
+</head>
+
+<body>
+
+  <!-- Top Banner -->
+  <header class="top-banner">
+    <!-- Banner at the top. Usually for deals or announcements. Can change bg color in CSS. -->
+    <div class="banner-content">
+      <p>Free shipping on orders over $200. <a href="#" class="popup-trigger">Learn More</a></p>
+      <!-- The "Learn More" can pop a modal. Class is key for JS triggers. -->
+    </div>
+  </header>
+
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar"> <!-- Main menu. Flex or grid in CSS usually. If links overlap, check spacing/margins. -->
+      <div class="logo" id="popup-trigger">Vione Hernal</div>
+      <!-- The logo text. I added an ID for JS click pop-up pero hindi naman gumagana. ID is unique, class can repeat. -->
+      <ul class="nav-links"> <!-- List of nav items, good for SEO and screen readers. -->
+        <li><a href="#" class="popup-trigger">WOMEN</a></li>
+        <!-- Each link can trigger pop-up. Class connects with JS. -->
+        <li><a href="#" class="popup-trigger">MEN</a></li>
+        <li><a href="#" class="popup-trigger">KIDS</a></li>
+        <li><a href="#" class="popup-trigger">SALE</a></li>
+        <li><a href="#" class="popup-trigger">NFT</a></li>
+        <li><a href="#" class="popup-trigger">COLLECTIONS</a></li>
+        <li><a href="#" class="popup-trigger">DISCOVER</a></li>
+        <li><a href="#" class="popup-trigger">ABOUT US</a></li>
+      </ul>
+      <div class="nav-icons">
+        <a href="#" class="popup-trigger search">&#128269;</a>
+        <!-- Search icon. &#128269; is the magnifying glass emoji -->
+        <a href="#" class="popup-trigger cart">&#128722;</a>
+        <!-- Cart icon, same emoji hack. Can replace with SVG if i want cleaner look. -->
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero"> <!-- Big first section, usually full screen. Attention grabber. -->
+    <video autoplay muted loop playsinline preload="auto" id="hero-video-1">
+      <!-- Background video. autoplay + muted to auto-play in browser without sound issues. -->
+      <source src="background/loop/loop-background-2.mp4" type="video/mp4"> <!-- The video file itself -->
+    </video>
+    <div class="hero-text-1"> <!-- Text over the video. Usually position absolute in CSS to float over. -->
+      <h1>Timeless Elegance</h1> <!-- Main headline. -->
+      <p>Fashion meets innovation. Every piece authenticated and verified through blockchain. A new era of
+        exclusivity is coming!</p> <!-- Subtext. I just kept shorttt -->
+      <a href="#" class="btn popup-trigger">Explore Collection</a>
+      <!-- Button that triggers pop-up. Class btn gives style in CSS. -->
+    </div>
+  </section>
+
+  <!-- Bottom Boxes -->
+  <section class="bottom-boxes"> <!-- These are usually for extra info or quick links. -->
+    <div class="box right-box">
+      <div class="box-content"> <!-- Empty for now, CSS handles background/images. -->
+        <div class="branding">
+          <h3>Exclusive Offer</h3>
+          <p>Get 20% off your first purchase. Use code: WELCOME20</p>
+        </div>
+      </div>
+    </div>
+    <div class="box left-box">
+      <div class="box-content">
+        <div class="branding">
+          <h3>Stay Connected</h3>
+          <p>Follow us on social media for the latest drops and updates.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Secondary Section -->
+  <section class="section"> <!-- Another content block. Could be grid/flex layout in CSS -->
+    <h2>Beyond the Ordinary</h2> <!-- Section headline -->
+    <p>Every detail tells a story—of vision, precision, and timeless sophistication. More than craftsmanship, it is a
+      commitment to redefine what luxury means in an age of innovation.</p>
+
+    <section class="hero-2"> <!-- Another hero style section inside main section -->
+      <video autoplay muted loop muted playsinline preload="auto" id="hero-video-2">
+        <source src="background/loop/loop-background-3.mp4" type="video/mp4"> <!-- Another background video -->
+        Your browser does not support the video tag.
+      </video>
+
+      <div class="hero-text-2"> <!-- Floating text over second hero video -->
+        <h2>Vione Hernal</h2>
+      </div>
+    </section>
+  </section>
+
+  <!-- Modal Popup -->
+  <div class="modal" id="fashionModal"> <!-- Pop-up overlay. CSS usually display:none by default, JS toggles it -->
+    <div class="modal-content"> <!-- The white box/content inside the modal -->
+      <span class="close-btn" id="closeModal">&times;</span>
+      <!-- The X to close. JS listens for click. &times; is just x symbol -->
+
+      <!-- Smoke video -->
+      <video class="smoke-video" autoplay loop muted playsinline preload="auto">
+        <!-- Small looped video inside modal for effect. playsinline fixes mobile issues -->
+        <source src="background/loop/animation/smoke-1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+
+      <img src="images/model/model-3.jpg" alt="Fashion Preview">
+      <!-- Main image for modal. alt helps with SEO & accessibility -->
+      <h2>Coming Soon</h2> <!-- Message text in modal -->
+    </div>
+  </div>
+
+</body>
+
+<script src="main-v1.js"></script>
+<!-- JS file. Handles pop-up triggers, animations, other interactions. Must load after HTML so elements exist. -->
+
+</html>
