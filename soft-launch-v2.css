@@ -62,7 +62,7 @@ body {
   justify-content: space-between;
   /* logo sa left, links sa gitna, icons sa kanan */
   align-items: center;
-  padding: 20px 30px;
+  padding: 14px 30px;
   /* mas maluwag spacing for luxury feel */
   position: fixed;
   width: 100%;
