@@ -22,26 +22,21 @@ body {
   🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭 */
 
 /* ito yung maliit na strip sa pinaka-top ng page (free shipping notice etc.) */
-.top-banner {
-  width: 100%;
+  .top-banner {
+
+  width: 1440px;
   background-color: #0B1F3F;
-  /* deep navy color, my energy vibes!!! 😋 */
   color: #ffffff;
-  /* white text para readable */
   text-align: center;
   padding: 0.6rem 0;
-  /* manipis na space top and bottom */
   font-family: 'Inter', sans-serif;
   font-size: 0.9rem;
-  /* medyo maliit lang na text */
   letter-spacing: 0.5px;
-  /* konting spacing, saks vibe */
   position: fixed;
-  /* naka-fix sa taas kahit mag scroll */
-  top: 0;
-  left: 0;
-  z-index: 15;
-  /* para laging nasa ibabaw ng navbar */
+  top: 0; /* place it at the very top */
+  left: 50%;
+  transform: translateX(-50%); /* center horizontally */
+  z-index: 9999; /* ensure it stays above navbar */
 }
 
 /* Yung link sa banner (Learn More) */
