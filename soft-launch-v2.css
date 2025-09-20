@@ -30,7 +30,7 @@ body {
   /* center horizontally */
   transform: translateX(-50%);
   /* pull back by half its width */
-  max-width: 1440px;
+  max-width: 1920px;
   /* match the navbar’s width cap */
   width: 100%;
   /* responsive full width inside the cap */
@@ -71,7 +71,7 @@ body {
   top: 2.3rem;
   left: 50%;
   transform: translateX(-50%);
-  max-width: 1440px;
+  max-width: 1920px;
   /* instead of fixed width */
   width: 100%;
   height: auto;
@@ -155,7 +155,7 @@ body {
 .hero {
   position: relative;
   width: 100%;
-  height: 720px;
+  height: 920px;
   /* buong screen height */
   overflow: hidden;
   display: flex;
@@ -169,8 +169,8 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 1440px;
-  height: 720px;
+  width: 1920px;
+  height: 920px;
   transform: translate(-50%, -50%);
   object-fit: cover;
   /* sakto fit kahit anong ratio */
@@ -248,21 +248,25 @@ body {
   display: flex;
 }
 
-/* Right box with model image */
-.bottom-boxes .right-box {
-  background-image: url('images/model/model-1.jpg');
-  background-size: cover;
-  background-position: center;
+/* Shared styles for both boxes */
+.bottom-boxes .right-box,
+.bottom-boxes .left-box {
+  width: 949.34px;               /* ✅ fixed width */
+  height: 1200px;                /* ✅ fixed height */
+  background-size: cover;        /* keep image covering the box */
+  background-position: center;   /* center the image */
   background-repeat: no-repeat;
 }
 
-/* Left box with model image */
+/* Specific images for each box */
+.bottom-boxes .right-box {
+  background-image: url('images/model/model-1.jpg');
+}
+
 .bottom-boxes .left-box {
   background-image: url('images/model/model-2.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 }
+
 
 
 .bottom-boxes .box-content {
@@ -346,7 +350,7 @@ body {
   justify-content: center;
   gap: 2rem;
   margin: 1rem auto;
-  width: 1440px;
+  width: 1920px;
   height: 900px;
   background-color: #f9f9f9;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -397,7 +401,7 @@ body {
 .hero-2 {
   position: relative;
   width: 100%;
-  height: 720px;
+  height: 920px;
   overflow: hidden;
 }
 
@@ -405,8 +409,8 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 1440px;
-  height: 720px;
+  width: 1920px;
+  height: 920px;
   transform: translate(-50%, -50%);
   object-fit: cover;
   z-index: 1;
