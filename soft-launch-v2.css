@@ -23,8 +23,17 @@ body {
 
 /* ito yung maliit na strip sa pinaka-top ng page (free shipping notice etc.) */
 .top-banner {
+  position: fixed;
+  /* stay at the top of the page */
+  top: 0;
+  left: 50%;
+  /* center horizontally */
+  transform: translateX(-50%);
+  /* pull back by half its width */
+  max-width: 1440px;
+  /* match the navbar’s width cap */
   width: 100%;
-  /* take the full screen width */
+  /* responsive full width inside the cap */
   background-color: #0B1F3F;
   color: #ffffff;
   text-align: center;
@@ -32,17 +41,15 @@ body {
   font-family: 'Inter', sans-serif;
   font-size: 0.9rem;
   letter-spacing: 0.5px;
-  position: fixed;
-  /* stick it to the top */
-  top: 0;
-  left: 0;
   z-index: 9999;
+  /* stay above the navbar */
 }
+  
 
 
 /* Yung link sa banner (Learn More) */
 .top-banner a {
-  color: #ffffff;
+  color: #232222;
   text-decoration: underline;
   font-weight: 500;
 }
