@@ -57,18 +57,21 @@ body {
 /* ito yung main navigation bar (logo, links, icons) */
 
 .navbar {
+  position: fixed;
+  top: 2.3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 1440px;   /* instead of fixed width */
+  width: 100%;
+  height: auto;        /* or a specific height if you need */
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 14px 30px;
-  position: fixed;
-  top: 2.3rem;
-  left: 50%;
-  transform: translateX(-50%);  /* ✅ centers horizontally */
-  width: 1440px;
   z-index: 10;
   background: transparent;
 }
+
 
 
 /* Logo design */
