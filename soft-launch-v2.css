@@ -56,18 +56,26 @@ body {
 
 /* ito yung main navigation bar (logo, links, icons) */
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 14px 30px;
   position: fixed;
   top: 2.3rem;
-  transform: translateX(-50%);  /* centers horizontally */
-  width: 1440px;
+
+  /* Center horizontally */
   left: 50%;
+  transform: translateX(-50%);
+
+  /* Set the exact size you want */
+  width: 1440px;
+  height: 720px;   /* if you really need 720px height */
+
+  display: flex;
+  justify-content: space-between; /* spread items inside */
+  align-items: center;
+
+  padding: 14px 30px;
   z-index: 10;
-  background: transparent;
+  background: transparent; /* don’t forget the semicolon */
 }
+
 
 /* Logo design */
 .navbar .logo {
