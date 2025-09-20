@@ -64,7 +64,6 @@ body {
   padding: 14px 30px;
   position: fixed;
   top: 2.3rem;
-  left: 50%;
   transform: translateX(-50%);  /* centers horizontally */
   width: 1440px;
   z-index: 10;
