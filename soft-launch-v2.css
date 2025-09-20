@@ -6,6 +6,12 @@
   /* para yung padding at border, hindi sumasama sa width/height */
 }
 
+:root {
+  --banner-height: 44px;
+  --nav-height: 72px;
+  --content-max-width: 1200px;
+}
+
 /* ito yung pinaka-body styles, yung main background at default font ng buong site */
 body {
   font-family: 'Inter', sans-serif;
@@ -22,21 +28,24 @@ body {
   🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭 */
 
 /* ito yung maliit na strip sa pinaka-top ng page (free shipping notice etc.) */
-  .top-banner {
-
-  width: 1440px;
+.top-banner {
+  width: 100%;
   background-color: #0B1F3F;
   color: #ffffff;
   text-align: center;
-  padding: 0.6rem 0;
+  padding: 0.5rem 1.25rem;
   font-family: 'Inter', sans-serif;
   font-size: 0.9rem;
   letter-spacing: 0.5px;
-  position: fixed;
-  top: 0; /* place it at the very top */
-  left: 50%;
-  transform: translateX(-50%); /* center horizontally */
-  z-index: 9999; /* ensure it stays above navbar */
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+  min-height: var(--banner-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Yung link sa banner (Learn More) */
@@ -61,34 +70,51 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 14px 30px;
-  position: fixed;
-  top: 2.3rem;
-  transform: translateX(-50%);  /* centers horizontally */
-  width: 1440px;
-  z-index: 10;
-  background: transparent;
+  flex-wrap: wrap;
+  gap: clamp(12px, 2vw, 32px);
+  padding: 18px clamp(20px, 6vw, 72px);
+  position: sticky;
+  top: var(--banner-height);
+  left: 0;
+  width: 100%;
+  z-index: 998;
+  background: rgba(6, 14, 32, 0.78);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  min-height: var(--nav-height);
 }
 
 /* Logo design */
 .navbar .logo {
   font-family: 'Playfair Display', serif;
   /* classy serif font */
-  font-size: 1.4rem;
-  font-weight: 100;
+  font-size: clamp(1.15rem, 1.5vw, 1.6rem);
+  font-weight: 200;
   /* manipis na stroke para sosyal tingnan, oakY?? */
   letter-spacing: 1px;
-  color: #eee;
+  color: #f2f2f2;
   /* off-white text */
   text-transform: uppercase;
   /* all caps = luxury brand vibe */
+  flex: 1 1 180px;
+  order: 0;
 }
 
 /* Navigation links wrapper */
 .nav-links {
   display: flex;
-  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  flex: 2 1 min(420px, 100%);
+  gap: clamp(12px, 2.2vw, 32px);
   /* pagitan ng bawat link */
+  flex-wrap: wrap;
+  order: 1;
+  scrollbar-width: none;
+}
+
+.nav-links::-webkit-scrollbar {
+  display: none;
 }
 
 .nav-links li {
@@ -98,36 +124,45 @@ body {
 
 /* Mga navigation links (Home, Women, Men, etc.) */
 .nav-links a {
-  font-size: .7rem;
-  font-weight: 50;
-  letter-spacing: 1px;
-  margin-bottom: 2rem;
-  color: #eee;
-  line-height: 1.5;
-  transition: color 0.3s ease;
+  font-size: clamp(0.7rem, 1.1vw, 0.95rem);
+  font-weight: 300;
+  letter-spacing: 2px;
+  color: #f5f5f5;
+  line-height: 1.6;
+  transition: color 0.3s ease, border-color 0.3s ease;
   /* smooth color change on hover */
+  text-decoration: none;
+  text-transform: uppercase;
+  padding-bottom: 4px;
+  border-bottom: 1px solid transparent;
 }
 
 /* Mga icons (search, cart) */
 .nav-icons a {
   text-decoration: none;
-  color: white;
-  font-size: 1.5rem;
-  margin-left: 20px;
+  color: #f5f5f5;
+  font-size: 1.3rem;
+  margin-left: 18px;
   transition: color 0.3s ease;
 }
 
-/* Pag hover sa buong navbar, nagiging white background */
-.navbar:hover {
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+.nav-icons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1 1 160px;
+  order: 2;
 }
 
-/* Pag naka-hover, lahat ng text nagiging black para contrast */
-.navbar:hover a,
-.navbar:hover .logo,
-.navbar:hover .nav-icons a {
-  color: black;
+/* Pag hover sa buong navbar, nagiging white background */
+.nav-links a:hover,
+.nav-icons a:hover,
+.navbar .logo:hover {
+  color: #ffffff;
+}
+
+.nav-links a:hover {
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
 
@@ -139,7 +174,7 @@ body {
 .hero {
   position: relative;
   width: 100%;
-  height: 720px;
+  min-height: max(520px, calc(100vh - (var(--banner-height) + var(--nav-height))));
   /* buong screen height */
   overflow: hidden;
   display: flex;
@@ -153,8 +188,10 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 1440px;
-  height: 720px;
+  width: 100%;
+  height: 100%;
+  min-width: 100%;
+  min-height: 100%;
   transform: translate(-50%, -50%);
   object-fit: cover;
   /* sakto fit kahit anong ratio */
@@ -218,14 +255,20 @@ body {
 .bottom-boxes {
   display: flex;
   justify-content: center;
-  gap: 1rem;
-  margin: 1rem auto;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: clamp(1rem, 4vw, 2.5rem);
+  width: min(100%, var(--content-max-width));
+  margin: clamp(2.5rem, 6vw, 5rem) auto;
+  padding: 0 clamp(1rem, 4vw, 3rem);
 }
 
 .bottom-boxes .box {
-  width: 712px;
-  height: 900px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  flex: 1 1 clamp(320px, 45%, 520px);
+  min-height: clamp(360px, 55vw, 560px);
+  max-width: 100%;
+  border-radius: 18px;
+  box-shadow: 0 12px 40px rgba(11, 31, 63, 0.18);
   overflow: hidden;
   flex-shrink: 0;
   position: relative;
@@ -251,22 +294,22 @@ body {
 
 .bottom-boxes .box-content {
   position: absolute;   /* changed from relative → absolute */
-  bottom: 20%;          /* new: push up from bottom */
-  left: 2rem;           /* new: spacing from left */
+  bottom: clamp(2rem, 8vw, 5rem);
+  left: clamp(1.5rem, 5vw, 3.5rem);
   z-index: 1;
   color: #fff;
-  max-width: 70%;       /* new: wrap to half width */
+  max-width: clamp(60%, 420px, 80%);
   text-align: left;     /* new: force left alignment */
 }
 
 
 .branding {
   font-family: 'Playfair Display', serif;
-  font-size: 2.30em;
-  line-height: 1.5;
+  font-size: clamp(1.45rem, 3vw, 2.4rem);
+  line-height: 1.4;
   text-transform: none;
   font-weight: 400;
-  max-width: 90%;
+  max-width: 100%;
   color: white;
 
 
@@ -276,12 +319,12 @@ body {
 }
 
 .branding p {
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 1.2vw, 1.05rem);
   font-weight: 300;
   letter-spacing: 1px;
-  margin-bottom: 2rem;
-  color: #eee;
-  line-height: 1.5;
+  margin-top: 0.85rem;
+  color: #f0f0f0;
+  line-height: 1.6;
 }
 
 
@@ -292,26 +335,26 @@ body {
 
 /* section na may title (Beyond the Ordinary - nag iisip pa ko ibang ilalagay dito) */
 .section {
-  padding: 0px 0px;
-  max-width: 12000px;
+  padding: clamp(3rem, 8vw, 6rem) clamp(1.5rem, 6vw, 4rem);
+  max-width: var(--content-max-width);
   margin: 0 auto;
   text-align: center;
 }
 
 .section h2 {
   font-family: 'Playfair Display', serif;
-  font-size: 2rem;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
   margin-bottom: 1rem;
   color: #111;
 }
 
 .section p {
-  font-size: 0.95rem;
+  font-size: clamp(0.9rem, 1.1vw, 1.05rem);
   font-weight: 300;
   color: #444;
-  max-width: 700px;
-  margin: 0 auto 2rem auto;
-  line-height: 1.6;
+  max-width: 720px;
+  margin: 0 auto clamp(2.5rem, 6vw, 4rem) auto;
+  line-height: 1.7;
 }
 
 
@@ -323,15 +366,16 @@ body {
 .bottom-last {
   display: flex;
   justify-content: center;
-  gap: 2rem;
-  margin: 1rem auto;
-  width: 1440px;
-  height: 900px;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  margin: clamp(2rem, 5vw, 4rem) auto;
+  width: min(100%, var(--content-max-width));
+  min-height: clamp(360px, 60vw, 640px);
   background-color: #f9f9f9;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  padding: 2rem;
+  box-shadow: 0 12px 40px rgba(12, 21, 43, 0.12);
+  padding: clamp(2rem, 6vw, 4rem);
   text-align: center;
   flex-shrink: 0;
+  border-radius: 18px;
 }
 
 
@@ -340,29 +384,144 @@ body {
 🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭🇵🇭 */
 
 /* Para gumanda layout pag mobile or tablet */
-@media (max-width: 768px) {
+@media (max-width: 1100px) {
+  :root {
+    --nav-height: 92px;
+  }
+
+  .navbar {
+    padding: 16px clamp(20px, 7vw, 56px);
+  }
+
   .nav-links {
-    gap: 15px;
+    flex: 1 1 100%;
+    order: 3;
+    gap: clamp(10px, 4vw, 24px);
   }
 
-  .hero-text h1 {
-    font-size: 2.2rem;
+  .nav-icons {
+    order: 2;
+    justify-content: flex-end;
   }
 
-  .hero-text p {
-    font-size: 0.9rem;
+  .bottom-boxes .box {
+    flex: 1 1 clamp(280px, 48%, 480px);
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --banner-height: 48px;
+    --nav-height: 120px;
+  }
+
+  .top-banner {
+    font-size: 0.8rem;
+    letter-spacing: 0.3px;
+  }
+
+  .navbar {
+    gap: 18px;
+    padding: 14px clamp(18px, 6vw, 36px);
+  }
+
+  .navbar .logo {
+    flex: 1 1 100%;
+    text-align: center;
+    order: 0;
+  }
+
+  .nav-icons {
+    order: 1;
+    justify-content: center;
+    flex: 1 1 100%;
+  }
+
+  .nav-icons a {
+    margin-left: 12px;
+  }
+
+  .nav-links {
+    order: 2;
+    flex: 1 1 100%;
+    gap: 12px;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    scroll-snap-type: x proximity;
+  }
+
+  .nav-links a {
+    scroll-snap-align: start;
+    letter-spacing: 1px;
+  }
+
+  .hero {
+    min-height: calc(100vh - (var(--banner-height) + var(--nav-height)));
+  }
+
+  .hero-text-1 h1 {
+    font-size: clamp(2rem, 6vw, 2.6rem);
+  }
+
+  .hero-text-1 p {
+    font-size: 0.95rem;
   }
 
   .bottom-boxes {
-    flex-direction: column;
-    /* stack na instead of side by side */
-    align-items: center;
+    padding: 0 clamp(1rem, 5vw, 2rem);
+    gap: clamp(1rem, 5vw, 1.5rem);
   }
 
-  .bottom-boxes .box,
-  .bottom-last {
-    width: 90%;
-    height: auto;
+  .bottom-boxes .box {
+    flex: 1 1 100%;
+    min-height: clamp(320px, 80vw, 520px);
+  }
+
+  .bottom-boxes .box-content {
+    bottom: clamp(1.5rem, 10vw, 3rem);
+    left: clamp(1.25rem, 8vw, 2.5rem);
+    max-width: 90%;
+  }
+
+  .branding {
+    font-size: clamp(1.4rem, 6vw, 2rem);
+  }
+
+  .hero-2 {
+    border-radius: 12px;
+  }
+
+  .hero-text-2 h2 {
+    letter-spacing: 6px;
+  }
+}
+
+@media (max-width: 520px) {
+  :root {
+    --nav-height: 148px;
+  }
+
+  .nav-links a {
+    font-size: 0.7rem;
+  }
+
+  .hero-text-1 p {
+    font-size: 0.9rem;
+  }
+
+  .hero-text-1 .btn {
+    padding: 10px 24px;
+    font-size: 0.85rem;
+  }
+
+  .section {
+    padding: clamp(2.5rem, 12vw, 4rem) clamp(1rem, 7vw, 2rem);
+  }
+
+  .section p {
+    line-height: 1.6;
   }
 }
 
@@ -376,16 +535,23 @@ body {
 .hero-2 {
   position: relative;
   width: 100%;
-  height: 720px;
+  min-height: clamp(420px, 65vh, 640px);
   overflow: hidden;
+  border-radius: 18px;
+  box-shadow: 0 12px 40px rgba(11, 31, 63, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #hero-video-2 {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 1440px;
-  height: 720px;
+  width: 100%;
+  height: 100%;
+  min-width: 100%;
+  min-height: 100%;
   transform: translate(-50%, -50%);
   object-fit: cover;
   z-index: 1;
@@ -404,8 +570,11 @@ body {
 
 .hero-text-2 h2 {
   text-align: center;
-  margin-top: 40%;
+  margin: 0;
   color: whitesmoke;
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: 8px;
+  text-transform: uppercase;
 }
 
 
