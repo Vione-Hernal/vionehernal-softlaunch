@@ -66,6 +66,7 @@ body {
   top: 2.3rem;
   transform: translateX(-50%);  /* centers horizontally */
   width: 1440px;
+  left: 50%;
   z-index: 10;
   background: transparent;
 }
