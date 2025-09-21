@@ -293,6 +293,7 @@ body {
   font-weight: 400;
   max-width: 90%;
   color: white;
+  padding-left: 25%;
 
 
   /* force left alignment inside flex/grid parents */
@@ -300,8 +301,18 @@ body {
   justify-self: flex-start;
 }
 
+#stay-connected {
+  padding-left: 10%;
+}
+
+.branding h3 {
+  font-size: 50px;
+  font-weight: 10px;
+
+}
+
 .branding p {
-  font-size: 1rem;
+  font-size: 1.40rem;
   font-weight: 300;
   letter-spacing: 1px;
   margin-bottom: 2rem;
