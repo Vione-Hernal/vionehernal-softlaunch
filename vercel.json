@@ -1,15 +1,5 @@
 {
   "rewrites": [
-    {
-      "source": "/",
-      "destination": "/index-v3.html"
-    }
-  ],
-  "redirects": [
-    {
-      "source": "/mobile-v1.html",
-      "destination": "/",
-      "permanent": true
-    }
+    { "source": "/", "destination": "/index-v3.html" }
   ]
 }
