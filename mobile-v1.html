@@ -4,15 +4,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vione Hernal</title>
+  <title>Vione Hernal | Fashion Blockchain</title>
 
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap"
     rel="stylesheet">
 
-   <link rel="icon" href="icon-vionehernal.ico" type="image/x-icon" />
+  <link rel="icon" href="icon-vionehernal.ico" type="image/x-icon" />
 
-   <link rel="icon" type="image/x-icon" href="images/logo.ico/vionehernal.ico">
+  <link rel="icon" type="image/x-icon" href="images/logo.ico/vionehernal.ico">
 
   <style>
     * {
@@ -239,6 +239,39 @@
       display: block;
     }
 
+    /* Position text inside slider images */
+    .luxury-slider .slide {
+      position: relative;
+      /* allows absolutely positioned children */
+    }
+
+    .branding {
+      font-family: Playfair Display, serif;
+      position: absolute;
+      bottom: 20px;
+      /* distance from bottom of image */
+      left: 20px;
+      /* distance from left side */
+      color: #fff;
+      /* semi-transparent box for readability */
+      padding: 15px 20px;
+      max-width: 80%;
+      /* keep text from overflowing */
+      padding-bottom: 30%;
+    }
+
+    .branding h3,
+    .branding p {
+      font-size: 30px;
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    .branding p {
+      font-size: 15px;
+    }
+
+
     /* Section text */
     .section {
       padding: 0.6rem 0.4rem;
@@ -306,10 +339,24 @@
   <!-- Slider -->
   <section class="luxury-slider">
     <div class="slides">
-      <div class="slide"><img src="images/model/model-1.jpg" alt="Model 1"></div>
-      <div class="slide"><img src="images/model/model-2.jpg" alt="Model 2"></div>
+      <div class="slide">
+        <img src="images/model/model-1.jpg" alt="Model 1">
+        <div class="branding">
+          <h3>Exclusive Offer</h3>
+          <p>Get 20% off your first purchase. Use code: WELCOME20</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <img src="images/model/model-2.jpg" alt="Model 2">
+        <div id="stay-connected" class="branding">
+          <h3>Stay Connected</h3>
+          <p>Follow us on social media for the latest drops and updates.</p>
+        </div>
+      </div>
     </div>
   </section>
+
 
   <!-- Section text -->
   <section class="section">
