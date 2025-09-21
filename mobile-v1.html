@@ -11,7 +11,6 @@
     rel="stylesheet">
 
   <link rel="icon" href="icon-vionehernal.ico" type="image/x-icon" />
-
   <link rel="icon" type="image/x-icon" href="images/logo.ico/vionehernal.ico">
 
   <style>
@@ -78,7 +77,6 @@
       background: rgba(0, 0, 0, 0.3);
       position: sticky;
       top: 68px;
-      /* below main navbar */
       z-index: 14;
       padding: 8px 12px;
       color: #fff;
@@ -230,6 +228,7 @@
       scroll-snap-align: center;
       overflow: hidden;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      position: relative;
     }
 
     .luxury-slider .slide img {
@@ -239,24 +238,14 @@
       display: block;
     }
 
-    /* Position text inside slider images */
-    .luxury-slider .slide {
-      position: relative;
-      /* allows absolutely positioned children */
-    }
-
     .branding {
       font-family: Playfair Display, serif;
       position: absolute;
       bottom: 20px;
-      /* distance from bottom of image */
       left: 20px;
-      /* distance from left side */
       color: #fff;
-      /* semi-transparent box for readability */
       padding: 15px 20px;
       max-width: 80%;
-      /* keep text from overflowing */
       padding-bottom: 30%;
     }
 
@@ -270,7 +259,6 @@
     .branding p {
       font-size: 15px;
     }
-
 
     /* Section text */
     .section {
@@ -293,6 +281,92 @@
       margin-left: auto;
       margin-right: auto;
     }
+
+    /* ✅ Popup Overlay */
+    .popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      display: none;
+      /* hidden by default */
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    /* ✅ Popup Box */
+    .popup-content {
+      font-family: Playfair Display, serif;
+      position: relative;
+      background: #fff;
+      padding: 20px;
+      max-width: 90%;
+      width: 320px;
+      /* smaller width */
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+      /* hide video overflow */
+      animation: popFade 0.3s ease;
+    }
+
+    /* ✅ Smoke video as background */
+    .popup-content .smoke-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      /* fill box */
+      z-index: 0;
+      /* behind content */
+      opacity: 0.4;
+      /* slightly faded */
+    }
+
+    /* ✅ Foreground elements stay above video */
+    .popup-content img,
+    .popup-content h2,
+    .popup-close {
+      position: relative;
+      z-index: 1;
+    }
+
+    .popup-content img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+
+    .popup-close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 24px;
+      cursor: pointer;
+      color: #fff;
+      /* visible over video */
+      text-shadow: 0 0 4px rgba(0, 0, 0, 0.7);
+    }
+
+    @keyframes popFade {
+      from {
+        transform: scale(0.9);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
   </style>
 </head>
 
@@ -357,7 +431,6 @@
     </div>
   </section>
 
-
   <!-- Section text -->
   <section class="section">
     <h2>Beyond the Ordinary</h2>
@@ -375,8 +448,53 @@
     </div>
   </section>
 
+  <!-- ✅ Popup Overlay -->
+  <div id="popup-overlay" class="popup-overlay">
+    <div class="popup-content">
+      <span class="popup-close" id="closeModal">&times;</span>
+
+      <!-- Smoke video -->
+      <video class="smoke-video" autoplay loop muted playsinline preload="auto">
+        <source src="background/loop/animation/smoke-1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+
+      <img src="images/model/model-3.jpg" alt="Fashion Preview">
+      <h2>Coming Soon</h2>
+    </div>
+  </div>
+
+
 </body>
 
+<!-- ✅ JS for popup -->
 <script src="main-v1.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const popupOverlay = document.getElementById("popup-overlay");
+    const popupClose = document.querySelector(".popup-close");
+    const popupTriggers = document.querySelectorAll(".popup-trigger");
+
+    popupTriggers.forEach(trigger => {
+      trigger.addEventListener("click", (e) => {
+        e.preventDefault();
+        popupOverlay.style.display = "flex";
+        document.body.style.overflow = "hidden";
+      });
+    });
+
+    popupClose.addEventListener("click", () => {
+      popupOverlay.style.display = "none";
+      document.body.style.overflow = "auto";
+    });
+
+    popupOverlay.addEventListener("click", (e) => {
+      if (e.target === popupOverlay) {
+        popupOverlay.style.display = "none";
+        document.body.style.overflow = "auto";
+      }
+    });
+  });
+</script>
 
 </html>
